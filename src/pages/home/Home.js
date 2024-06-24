@@ -34,16 +34,22 @@ function Home({ setSelectedItem, handleScrollTo }) {
                             LinkedIn
                         </Button>
                     </p>
+                    <div className={styles.spacer} />
                 </div>
-                <div className={styles.spacer} />
+                <div id={PROJECT_TABLE_ID}>
+                
                 <hr className={styles.customHr}/>
                 <div className={styles.spacer} />
+    
                 <Typography variant="h5" gutterBottom>Projects</Typography>
-                <GithubRepoTable sectionId={PROJECT_TABLE_ID} />
+                <GithubRepoTable sectionId={"github-table"} />
                 <div className={styles.spacer} />
+                </div>
+                <div id={CONTACT_ID}>
                 <hr className={styles.customHr}/>
                 <div className={styles.spacer} />
-                <Contact sectionId={CONTACT_ID} />
+                <Contact sectionId={"inner-contact-form"} />
+                </div>
             </ScrollSpy>
         </div>
     );
