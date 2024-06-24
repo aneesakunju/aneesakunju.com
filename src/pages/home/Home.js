@@ -19,10 +19,10 @@ function Home({ setSelectedItem, handleScrollTo }) {
         <div className={styles.container}>
             <ScrollSpy scrollThrottle={100} useBoxMethod={FlashOffOutlined} onUpdateCallback={(id) => { setSelectedItem(id) }}>
                 <div id={HOME_ID}>
-                    <h4 style={{ color: 'lightgrey' }}>HEY THERE,</h4>
-                    <h1>I'm Aneesa Kunju.</h1>
+                    <h4 style={{ color: 'lightgrey' }}>Hello there, my name is</h4>
+                    <h1>Aneesa Kunju.</h1>
                     <h3 style={{ color: 'lightgrey' }}>
-                        I am a Software Engineer with over 6 years experience developing in Java, Spring, Kotlin, SQL and React.
+                        I am a Software Engineer with over 6 years of experience developing in Java, Spring, Kotlin, SQL and React.
 
                     </h3>
                     <p>
