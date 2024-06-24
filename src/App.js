@@ -8,6 +8,13 @@ import { CssBaseline, createTheme } from '@mui/material';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/home/Home';
 import styles from './App.module.css';
+import { useState } from 'react';
+import ScrollToTop from './components/scroll-to-top/ScrollToTop';
+import Layout from './components/layout/Layout';
+
+export const HOME = "/";
+export const GITHUB_TABLE_ID = 'githubtable';
+export const CONTACT_ID = 'contact';
 
 /*
 const theme = createTheme({
@@ -26,15 +33,34 @@ const theme = createTheme({
 const theme = createTheme();
 
 function App() {
+  const [selectedItem, setSelectedItem] = useState();
+
+  function handleScrollTo(id, behavior = 'smooth') {
+    setSelectedItem(id);
+    const section = document.getElementById(id);
+    if (section) {
+      const offset = -65;
+      const y = section.getBoundingClientRect().top + window.scrollY + offset;
+      // section.scrollIntoView({
+      //   behavior: 'smooth'
+      // });
+      window.scrollTo({top: y, behavior});
+    }
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline enableColorScheme />
       <div className={styles.container}>
         <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="*" element={<Home />} />
-          </Routes>
+          <ScrollToTop />
+          
+          <Layout selectedItem={selectedItem} handleScrollTo={handleScrollTo}>
+            <Routes>
+              <Route path={HOME} element={<Home />} />
+              <Route path="*" element={<Home />} />
+            </Routes>
+          </Layout>
         </BrowserRouter>
       </div>
     </ThemeProvider>
