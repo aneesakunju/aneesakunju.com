@@ -19,7 +19,8 @@ import MailIcon from '@mui/icons-material/Mail';
 import DrawerHeader from './DrawerHeader';
 import CreateIcon from '@mui/icons-material/Create';
 import EmailIcon from '@mui/icons-material/Email';
-import { CONTACT_ID, GITHUB_TABLE_ID } from '../../App';
+import HomeIcon from '@mui/icons-material/Home';
+import { CONTACT_ID, HOME_ID, PROJECT_TABLE_ID } from '../../App';
 
 export const DRAWER_WIDTH = 240;
 
@@ -56,7 +57,7 @@ export default function DrawerNav({ open, setOpen, selectedItem, handleScrollTo 
             <AppBar position="fixed" open={open}>
                 <Toolbar>
                     <Typography style={{ fontStyle: 'italic', flexGrow: 1 }} variant="h6" noWrap component="div">
-                        Aneesa Kunju
+                        {/* Aneesa Kunju */}
                     </Typography>
                     <IconButton
                         color="inherit"
@@ -76,7 +77,7 @@ export default function DrawerNav({ open, setOpen, selectedItem, handleScrollTo 
                     '& .MuiDrawer-paper': {
                         width: DRAWER_WIDTH,
                         boxSizing: 'border-box',
-                        backgroundColor: '#f6eee3',
+                        backgroundColor: '#2c3e51',
                         right: 0, // Adjusted to align with the right edge of the screen
                     },
                 }}
@@ -93,14 +94,26 @@ export default function DrawerNav({ open, setOpen, selectedItem, handleScrollTo 
                 <List>
                     <ListItem disablePadding>
                         <ListItemButton
-                            data-to-scrollspy-id={GITHUB_TABLE_ID}
-                            selected={selectedItem === GITHUB_TABLE_ID}
-                            onClick={() => { handleScrollTo(GITHUB_TABLE_ID); handleDrawerClose(); }}
+                            data-to-scrollspy-id={HOME_ID}
+                            selected={selectedItem === HOME_ID}
+                            onClick={() => { handleScrollTo(HOME_ID); handleDrawerClose(); }}
+                        >
+                            <ListItemIcon>
+                                <HomeIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={"Home"} />
+                        </ListItemButton>
+                    </ListItem>
+                    <ListItem disablePadding>
+                        <ListItemButton
+                            data-to-scrollspy-id={PROJECT_TABLE_ID}
+                            selected={selectedItem === PROJECT_TABLE_ID}
+                            onClick={() => { handleScrollTo(PROJECT_TABLE_ID); handleDrawerClose(); }}
                         >
                             <ListItemIcon>
                                 <CreateIcon />
                             </ListItemIcon>
-                            <ListItemText primary={"Drawings"} />
+                            <ListItemText primary={"Projects"} />
                         </ListItemButton>
                     </ListItem>
                     <ListItem disablePadding>

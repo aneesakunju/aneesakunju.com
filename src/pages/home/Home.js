@@ -1,21 +1,50 @@
 
+import { FlashOffOutlined } from "@mui/icons-material";
+import ScrollSpy from "react-ui-scrollspy";
 import GithubRepoTable from "../../components/github-repo-table/GithubRepoTable";
 import styles from "./Home.module.css";
+import { useEffect } from "react";
+import { CONTACT_ID, HOME, HOME_ID, PROJECT_TABLE_ID } from "../../App";
+import Contact from "../../components/contact/Contact";
+import { Button, Typography } from "@mui/material";
 
-function Home() {
+function Home({ setSelectedItem, handleScrollTo }) {
+    useEffect(() => {
+        const hash = window.location.hash.split('#')[1];
+        if (hash) {
+            handleScrollTo(hash.toLocaleLowerCase(), 'instant');
+        }
+    }, []);
     return (
         <div className={styles.container}>
-                <h1>Aneesa Kunju</h1>
-                <p>Software Engineer</p>
-            <p>
-                <a href="https://www.linkedin.com/in/aneesa-k-7309813/">Aneesa Kunju LinkedIn</a>
-            </p>
-            <h3>
-                Projects
-            </h3>
-            <div className={styles.table}>
-                <GithubRepoTable />
-            </div>
+            <ScrollSpy scrollThrottle={100} useBoxMethod={FlashOffOutlined} onUpdateCallback={(id) => { setSelectedItem(id) }}>
+                <div id={HOME_ID}>
+                    <h4 style={{ color: 'lightgrey' }}>HEY THERE,</h4>
+                    <h1>I'm Aneesa Kunju.</h1>
+                    <h3 style={{ color: 'lightgrey' }}>
+                        I am a Software Engineer with over 6 years experience developing in Java, Spring, Kotlin, SQL and React.
+
+                    </h3>
+                    <p>
+                        <Button
+                            variant="contained"
+                            sx={{ textTransform: 'none' }}
+                            onClick={() => { window.open('https://www.linkedin.com/in/aneesa-k-7309813/') }}
+                        >
+                            LinkedIn
+                        </Button>
+                    </p>
+                </div>
+                <div className={styles.spacer} />
+                <hr className={styles.customHr}/>
+                <div className={styles.spacer} />
+                <Typography variant="h5" gutterBottom>Projects</Typography>
+                <GithubRepoTable sectionId={PROJECT_TABLE_ID} />
+                <div className={styles.spacer} />
+                <hr className={styles.customHr}/>
+                <div className={styles.spacer} />
+                <Contact sectionId={CONTACT_ID} />
+            </ScrollSpy>
         </div>
     );
 }

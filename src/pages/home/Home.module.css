@@ -2,3 +2,9 @@
 .table {
     max-width: 500px;
 }
+.customHr {
+    border: 0.5px solid grey;
+}
+.spacer {
+    margin-top: 55px;
+}

@@ -13,7 +13,8 @@ import ScrollToTop from './components/scroll-to-top/ScrollToTop';
 import Layout from './components/layout/Layout';
 
 export const HOME = "/";
-export const GITHUB_TABLE_ID = 'githubtable';
+export const HOME_ID = "home";
+export const PROJECT_TABLE_ID = 'projects';
 export const CONTACT_ID = 'contact';
 
 /*
@@ -30,7 +31,14 @@ const theme = createTheme({
 });
 */
 
-const theme = createTheme();
+const theme = createTheme({
+  palette: {
+    mode: 'dark',
+    primary: {
+      main: '#009688'
+    }
+  }
+});
 
 function App() {
   const [selectedItem, setSelectedItem] = useState();
@@ -54,11 +62,10 @@ function App() {
       <div className={styles.container}>
         <BrowserRouter>
           <ScrollToTop />
-          
           <Layout selectedItem={selectedItem} handleScrollTo={handleScrollTo}>
             <Routes>
-              <Route path={HOME} element={<Home />} />
-              <Route path="*" element={<Home />} />
+              <Route path={HOME} element={<Home setSelectedItem={setSelectedItem} handleScrollTo={handleScrollTo} />} />
+              <Route path="*" element={<Home setSelectedItem={setSelectedItem} handleScrollTo={handleScrollTo} />} />
             </Routes>
           </Layout>
         </BrowserRouter>

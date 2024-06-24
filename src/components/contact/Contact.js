@@ -79,7 +79,7 @@ export default function Contact({ sectionId }) {
         formData.append("name", name);
         formData.append("email", email);
         formData.append("message", message);
-        formData.append("access_key", "ffc0694d-27c5-40be-b9fa-5beb798f7208");
+        formData.append("access_key", "fc43e87f-49d7-4ec1-80ff-536a6e5dae67");
         formData.append("h-captcha-response", captchaToken);
 
         const response = await fetch("https://api.web3forms.com/submit", {
@@ -104,7 +104,7 @@ export default function Contact({ sectionId }) {
     return (
         <div id={sectionId}>
             <FormContainer>
-                <Typography variant="h5" gutterBottom>Commission Request Form</Typography>
+                <Typography variant="h5" gutterBottom>Contact Me</Typography>
                 <StyledForm onSubmit={onSubmit} ref={formRef}>
                     <TextField
                         label="Name"
