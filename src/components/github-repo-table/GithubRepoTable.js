@@ -84,6 +84,7 @@ function createData(name, url) {
 }
 
 const rows = [
+  createData('Foreign Exchange Rates APIs - Kotlin', 'https://github.com/aneesakunju/FXRatesAPIs'),
   createData('Simple Load Balancer - Java', 'https://github.com/aneesakunju/load-balancer'),
 ].sort((a, b) => (a.name < b.name ? -1 : 1));
 
