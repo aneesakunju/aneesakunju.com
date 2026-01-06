@@ -84,6 +84,7 @@ function createData(name, url) {
 }
 
 const rows = [
+  createData('Spring Boot, Spring Data JPA and React', 'https://github.com/aneesakunju/luggage-app'),
   createData('Spring Data JPA and Hibernate', 'https://github.com/aneesakunju/SpringDataJPA_and_Hibernate'),
   createData('Spring Boot Microservices with Eureka', 'https://github.com/aneesakunju/microservices'),
   createData('Foreign Exchange Rates APIs - Kotlin', 'https://github.com/aneesakunju/FXRateAPIs'),
